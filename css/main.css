@@ -1,0 +1,10 @@
+/** Navigation styling override */
+nav {
+  color: #e5e7eb;
+}
+
+
+/** Body styling override */
+body {
+  background-color: #e4e4e7;
+};
