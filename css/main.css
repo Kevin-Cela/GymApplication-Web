@@ -1,3 +1,12 @@
+/** Custom font  */
+@font-face {
+  font-family: Spectral;
+  src: '../assets/font/Spectral Bold.ttf';
+}
+/** Define css variables */
+:root {
+  --logo-orange: #EA3C12;
+}
 /** Navigation styling override */
 nav {
   color: #e5e7eb;
@@ -7,4 +16,14 @@ nav {
 /** Body styling override */
 body {
   background-color: #e4e4e7;
-};
+}
+
+/** Gymify header */
+header#gymify{
+  background-color: var(--logo-orange);
+  background-image: url('../assets/logo/png/logo-color.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  font-family: Spectral;
+}

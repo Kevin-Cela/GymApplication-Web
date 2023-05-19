@@ -1,3 +1,3 @@
-<header>
-  <h2>Hello World</h2>
+<!-- Header section which contains the image and colored background -->
+<header class="w-full h-52" id="gymify">
 </header>
