@@ -25,14 +25,15 @@
       $length = count($devs);
       for ($i = 0; $i < $length; $i++) {
         echo "
-    <div class='w-full h-full hover:bg-[#d4d4d8] transition-colors duration-300 pb-12 flex items-center content-center justify-evenly gap-1 flex-col'>
+    <div class='w-full h-full transition-colors duration-300 pb-12 flex items-center content-center justify-evenly gap-1 flex-col'>
   <a
-  class='text-lg w-full md:max-w-md md:text-2xl text-center tracking-wide'
+  class='text-lg w-full hover:bg-amber-50  md:max-w-md md:text-2xl text-center tracking-wide'
   href='https://github.com/{$values[$i]}' 
   target='_blank'
   >
   <img 
   class='w-9/10 md:max-w-md lg:max-w-sm'
+  loading='lazy'
   src='/assets/users/margelo_faces_{$i}.svg' 
   alt='{$values[$i]}'>
   {$keys[$i]}

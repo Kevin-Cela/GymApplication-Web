@@ -1,3 +1,4 @@
+<link rel="icon" type="image/svg+xml" href="/assets/logo/svg/logo-color.svg">
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Include main.css file -->
