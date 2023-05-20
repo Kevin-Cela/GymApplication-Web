@@ -12,7 +12,7 @@
 <body>
   <?php require './components/Navigation.php' ?>
   <?php require './components/Header.php' ?>
-  <?php require './components/About/Info.php' ?>
+  <?php require './components/About/Staff.php' ?>
 </body>
 
 </html>
