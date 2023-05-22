@@ -1,4 +1,4 @@
-<form method="LATER.php" class="flex flex-col items-center content-center justify-evenly gap-4 pt-6 pb-12 lg:mb-0 mb-6 w-full h-full">
+<form method="POST" action="LATER.php" class="flex flex-col items-center content-center justify-evenly gap-4 pt-6 pb-12 lg:mb-0 mb-6 w-full h-full">
   <div class="w-full p-2 text-center">
     <h2 class="md:text-3xl text-xl text-gray-100">
       Do you like Gymify ?

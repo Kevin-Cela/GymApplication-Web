@@ -24,7 +24,7 @@
     </div>
     <div class="w-full h-fit p-2 pt-8 mx-auto flex flex-col items-start content-left justify-evenly gap-5">
       <h4 class="text-white tracking-wider text-2xl text-left mx-auto">Contact Us</h4>
-      <a href="mailto:support@gymify.com" class="text-left px-1 py-3 text-gray-300">support@gymify.com</a>
+      <a href="mailto:support@gymify.com?subject=Mail from our Website" target="_blank"  class="text-left px-1 py-3 text-gray-300">support@gymify.com</a>
     </div>
   </section>
   <div class="w-full h-fit pb-4 pt-8">
