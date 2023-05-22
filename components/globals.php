@@ -8,7 +8,9 @@
     theme: {
       extend: {
         colors: {
-          logoOrange: 'var(--logo-orange)',
+          logo: {
+            orange: 'var(--logo-orange)',
+          },
           footer: {
             dark: '#333333',
           },
@@ -28,3 +30,4 @@
 <link rel="stylesheet" href="./css/main.css" />
 <!-- Highlight the active path -->
 <script src="./utils/navigation.js" defer></script>
+<script src="./utils/button.js" defer></script>
