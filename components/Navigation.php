@@ -7,7 +7,7 @@
       <a href="/about_us.php" class="transition-all duration-300 md:text-xl text-base p-1 border-b-2 border-transparent hover:border-b-white">About Us</a>
     </li>
     <li class="p-2">
-      <a href="/register.php" class="transition-all duration-300 md:text-xl text-base p-1 border-b-2 border-transparent hover:border-b-white">Register</a>
+      <a href="/login.php" class="transition-all duration-300 md:text-xl text-base p-1 border-b-2 border-transparent hover:border-b-white">LogIn</a>
     </li>
   </ul>
 </nav>
