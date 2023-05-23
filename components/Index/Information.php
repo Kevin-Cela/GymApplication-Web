@@ -6,6 +6,7 @@
     Manage you client's membership, online booking system, marketing tool, warehousing and attendance system for employees in
     <strong>one place</strong>.
   </p>
+  
   <p class="text-lg w-full py-4 md:py-2 tracking-wide leading-relaxed mx-auto ">
     Everything with GYMIFY -
     <strong> software of fitness centers!</strong>

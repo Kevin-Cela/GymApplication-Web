@@ -16,7 +16,11 @@
       <?php require './components/Index/Information.php' ?>
       <?php require './components/Index/FloatingLogo.php' ?>
     </div>
+    <div class="w-full h-fit p-0 flex flex-col md:flex-row items-stretch justify-start">
+      <?php require './components/Index/Slideshow.php' ?>
+</div>
     <div class="w-full h-fit p-4 flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-0 items-center content-center justify-center">
+
       <?php require './components/Index/RegisterGymButton.php' ?>
       <?php require './components/Index/ClientButton.php' ?>
     </div>
