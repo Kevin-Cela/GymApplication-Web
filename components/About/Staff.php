@@ -34,7 +34,7 @@
   <img 
   class='w-9/10 md:max-w-md lg:max-w-sm'
   loading='lazy'
-  src='/assets/users/margelo_faces_{$i}.svg' 
+  src='/assets/images/users/margelo_faces_{$i}.svg' 
   alt='{$values[$i]}'>
   {$keys[$i]}
   </a>
@@ -45,5 +45,4 @@
     displayDevs($devs);
     ?>
   </div>
-  <!-- Our developers -->
 </div>
