@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <?php require './components/Navigation.php' ?>
+  <?php require './components/Navigation2.php' ?>
   <?php require './components/Header.php' ?>
   <?php require './components/About/Staff.php' ?>
   <?php require './components/Footer/Footer.php' ?>
