@@ -11,7 +11,7 @@
 </head>
 
 
-<body class="login-background">
+<body >
   <?php require './components/Navigation.php' ?>
   <?php require './components/Login/Validate.php' ?>
   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 my-12 mx-auto">
@@ -22,16 +22,16 @@
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
       <div>
         <label for="email" style="color: #ECEAE2;">Email:</label>
-        <input type="text" id="email" name="email" class="login-email" placeholder="Enter your email" value="<?php echo $email; ?>" required>
+        <input type="text" id="email" name="email" class="login-email" placeholder="Enter your email" value="<?php echo $email; ?>">
         <span class="error"><?php echo $emailErr; ?></span>
       </div>
       <div>
         <label for="password" style="color: #ECEAE2;">Password:</label>
-        <input type="password" id="password" class="login-password" name="password" placeholder="Enter your password" required>
+        <input type="password" id="password" class="login-password" name="password" placeholder="Enter your password" value="<?php echo $password; ?>">
         <span class="error"><?php echo $passwordErr; ?></span>
       </div>
+      <input type="submit" name="submit" value="Register" class="login-button">
     </form>
-    <button type="submit" class="login-button">Register</button>
     <div class="mt-5 flex items-center content-center justify-center gap-4">
       <a href="forgot_password.php" class="text-sky-300 hover:text-sky-500">Forgot Password?</a>
       <span class="w-0.5 h-5 !bg-slate-300"></span>
