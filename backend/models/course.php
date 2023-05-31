@@ -6,6 +6,7 @@ class Course{
     private $type;
     private $description;
     private $price;
+    private $coach;
 
 
     //getters and setters
@@ -38,6 +39,12 @@ class Course{
     }
     public function setPrice($price){
         $this->price = $price;
+    }
+    public function getCoach(){
+        return $this->price;
+    }
+    public function setCoach($coach){
+        $this->coach = $coach;
     }
     //end of getters and setters
 }
