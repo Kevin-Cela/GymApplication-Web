@@ -47,6 +47,9 @@
     .error{
       @apply text-red-700 mb-4;
     }
+    .login-background {
+  @apply;
+}
   
   }
 </style>

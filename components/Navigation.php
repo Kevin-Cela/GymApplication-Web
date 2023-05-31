@@ -1,6 +1,5 @@
-<nav class="w-full h-auto py-2 px-1 bg-logo-orange md:block md:relative fixed bottom-0 z-50">
+<nav class="w-full h-auto py-2 px-1 bg-logo-orange md:flex md:relative fixed bottom-0 z-50">
   <ul class="w-full flex flex-row items-center justify-evenly">
-   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-10 h-10 my-1 mx-1 justify-content: flex-start">
     <li class="p-2">
       <a href="/" class="transition-all duration-300 ease-in-out md:text-xl text-base p-1 border-b-2 border-transparent hover:border-b-white">Home</a>
     </li>

@@ -11,10 +11,9 @@
 </head>
 
 
-<body>
+<body class="login-background">
   <?php require './components/Navigation.php' ?>
   <?php require './components/Login/Validate.php' ?>
-  <!-- TODO: Convert black logo to svg -->
   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 my-12 mx-auto">
   <h1 class="text-center text-2xl lg:text-3xl">
     Welcome to The Club!
