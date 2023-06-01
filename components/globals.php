@@ -66,9 +66,6 @@
       @apply tracking-wider font-normal;
       @apply hover:bg-logo-orange  transition-colors duration-300;
     }
-    .error{
-      @apply text-red-700 mb-4;
-    }
     .gymify-header {
       @apply w-full h-52;
       @apply bg-logo-orange;

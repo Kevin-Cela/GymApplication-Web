@@ -10,9 +10,7 @@
 </head>
 
 <body>
-<div class = "w-full h-auto py-2 px-1 bg-logo-orange md:block md: fixed top-0 z-50">
   <?php require './components/Navigation.php' ?>
-  </div>
   <main class="container mx-auto pb-12">
     <div class="w-full h-fit p-20 flex flex-col gap-4 md:gap-6 lg:gap-0 md:flex-row items-center content-center justify-center">
       <?php require './components/Index/Information.php' ?>
