@@ -79,8 +79,8 @@
   }
 </style>
 <!-- Include main.css file -->
-<link rel="stylesheet" href="./css/main.css" />
+<link rel="stylesheet" href="/css/main.css" />
 <!-- Highlight the active path -->
-<script src="./utils/navigation.js" defer></script>
-<script src="./utils/button.js" defer></script>
-<script src="./utils/slideshow.js" defer></script>
+<script src="/utils/navigation.js" defer></script>
+<script src="/utils/button.js" defer></script>
+<script src="/utils/slideshow.js" defer></script>
