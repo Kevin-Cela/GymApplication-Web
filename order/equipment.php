@@ -16,12 +16,6 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       margin-top: 30px;
       margin-bottom: 30px;
-
-    }
-
-    .fjala {
-      text-align: center;
-      font-size: 30px;
     }
 
     .container input[type="text"],
@@ -100,15 +94,6 @@
     }
   </style>
   <script defer>
-    const input = document.getElementById('numbers');
-    input.addEventListener('input', function() {
-      if (input.value < 1) {
-        input.value = 1;
-      } else if (input.value > 10) {
-        input.value = 10;
-      }
-    });
-
     function redirectToPage() {
       window.location.href = '/coachDashboard.php';
     }
