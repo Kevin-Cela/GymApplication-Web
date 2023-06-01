@@ -11,7 +11,7 @@
 </head>
 
 
-<body class="login-background">
+<body >
   <?php require './components/Navigation.php' ?>
   <?php require './components/Login/Validate.php' ?>
   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 my-12 mx-auto">
@@ -28,10 +28,11 @@
       <div>
         <label for="password" class="text-slate-800 tracking-wider text-base lg:text-lg">Password</label>
         <input type="password" id="password" class="login-password" name="password" placeholder="Enter your password" required>
+
         <span class="error"><?php echo $passwordErr; ?></span>
       </div>
+      <input type="submit" name="submit" value="Register" class="login-button">
     </form>
-    <button type="submit" class="login-button">Register</button>
     <div class="mt-5 flex items-center content-center justify-center gap-4">
       <a href="/forgot_password.php" class="text-sky-600 hover:text-sky-500">Forgot Password?</a>
       <span class="w-0.5 h-5 bg-slate-300"></span>
