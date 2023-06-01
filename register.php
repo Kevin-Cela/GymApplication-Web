@@ -96,7 +96,7 @@
 
 <body>
   <?php require './components/Navigation.php' ?>
-  <?php require './components/Login/Register.php' ?>
+  <?php require './components/Validate/RegisterValidate.php' ?>
 
   <img src="./assets/logo/png/Logo_black_2.png" alt="Logo" class="logo_vogel">
 
