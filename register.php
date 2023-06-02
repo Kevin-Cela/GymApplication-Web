@@ -7,11 +7,6 @@
   <?php require './components/globals.php' ?>
 
   <style>
-    body {
-      font-family: './assets/font/Spectral Bold.ttf';
-      background-color: #f1f1f1;
-    }
-
     .container {
       max-width: 400px;
       margin: 0 auto;

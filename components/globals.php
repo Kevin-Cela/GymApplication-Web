@@ -15,6 +15,7 @@
         backgroundImage: {
           'login-background': "url('/assets/images/gym/GymPhoto1.jpeg')",
           'header-background': "url('/assets/logo/png/logo-color.png')",
+          'equipment-background': "url('/assets/images/gym/everyday-gym.jpg')",
         },
         colors: {
           body: {
@@ -55,7 +56,7 @@
     .active {
       @apply border-b-2 border-b-white;
     }
-    .login-email, .login-password {
+    .input-special {
       @apply w-full px-4 py-3 my-2;
       @apply inline-block border-b border-b-slate-900;
       @apply bg-transparent placeholder:text-center outline-none;
@@ -74,6 +75,13 @@
     .login-background {
       @apply bg-login-background;
       @apply w-screen h-screen;
+      @apply bg-no-repeat;
+      @apply backdrop-blur;
+    }
+    .equipment-background {
+      @apply w-full h-screen;
+      @apply bg-equipment-background;
+      @apply bg-no-repeat bg-cover;
       @apply backdrop-blur;
     }
   }
@@ -84,3 +92,5 @@
 <script src="/utils/navigation.js" defer></script>
 <script src="/utils/button.js" defer></script>
 <script src="/utils/slideshow.js" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
