@@ -14,7 +14,7 @@
   <?php require './components/Validation/LoginValidate.php' ?>
   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 mb-6 pt-3 mx-auto">
   <h1 class="text-center text-2xl lg:text-3xl text-slate-200">
-    Welcome to The Club!
+   Welcome Back 
   </h1>
   <div class="my-10 shadow-lg drop-shadow-lg mx-auto p-4 lg:p-8 border border-slate-300 rounded-xl bg-body-light w-10/12 md:w-10/12 lg:w-1/2 xl:w-1/3">
     <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
@@ -29,7 +29,7 @@
         <span class="text-red-700 pb-6"><?php echo $passwordErr; ?></span>
       </div>
       <button type="submit" name="submit" class="login-button">
-        Register
+        Log In
       </button>
     </form>
     <div class="mt-5 flex flex-col lg:flex-row items-center content-center justify-evenly lg:justify-center gap-4">
