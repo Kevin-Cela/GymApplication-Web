@@ -11,7 +11,7 @@ class Database{
     }
     public function open_db_connection(){
         $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-        if($this->connection->connect_errno){
+        if($this->connection->connect_error){
             die("Database connection failed");
         }else{
             echo "Success";
@@ -45,5 +45,4 @@ class Database{
 }
 
 $database = new Database();
-
 ?>
