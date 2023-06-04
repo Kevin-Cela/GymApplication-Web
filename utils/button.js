@@ -6,3 +6,10 @@ if (clientButton) {
     clientHeading.scrollIntoView({ behavior: 'smooth' });
   });
 }
+
+const formButton = document.querySelector('form button');
+if (formButton) {
+  formButton.addEventListener('click', function(event) {
+    event.preventDefault();
+  });
+}

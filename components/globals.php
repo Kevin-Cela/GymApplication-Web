@@ -14,7 +14,8 @@
         },
         backgroundImage: {
           'login-background': "url('/assets/images/gym/GymPhoto1.jpeg')",
-          'header-background': "url('/assets/logo/png/logo-color.png')",
+          'header-background': "url('/assets/logo/svg/logo-no-background.svg')",
+          'equipment-background': "url('/assets/images/gym/everyday-gym.jpg')",
         },
         colors: {
           body: {
@@ -55,10 +56,20 @@
     .active {
       @apply border-b-2 border-b-white;
     }
-    .login-email, .login-password {
+    .error {
+      @apply text-red-600 text-lg;
+    }
+    .input-register {
+      @apply w-full px-2 py-2 mb-2;
+      @apply inline-block border-b border-b-slate-900;
+      @apply bg-transparent placeholder-shown:text-center outline-none;
+      @apply invalid:border-b-red-600 invalid:placeholder-shown:text-red-500;
+    }
+    .input-special {
       @apply w-full px-4 py-3 my-2;
       @apply inline-block border-b border-b-slate-900;
       @apply bg-transparent placeholder:text-center outline-none;
+      @apply invalid:border-b-red-600 invalid:placeholder-shown:text-red-500;
     }
     .login-button {
       @apply w-full bg-footer-dark text-slate-200;
@@ -67,13 +78,19 @@
       @apply hover:bg-logo-orange  transition-colors duration-300;
     }
     .gymify-header {
-      @apply w-full h-52;
-      @apply bg-logo-orange;
+      @apply w-full h-40 mt-6 mb-2;
       @apply bg-header-background bg-no-repeat bg-contain bg-center;
     }
     .login-background {
       @apply bg-login-background;
       @apply w-screen h-screen;
+      @apply bg-no-repeat;
+      @apply backdrop-blur;
+    }
+    .equipment-background {
+      @apply w-full h-screen;
+      @apply bg-equipment-background;
+      @apply bg-no-repeat bg-cover;
       @apply backdrop-blur;
     }
   }
@@ -84,3 +101,5 @@
 <script src="/utils/navigation.js" defer></script>
 <script src="/utils/button.js" defer></script>
 <script src="/utils/slideshow.js" defer></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
