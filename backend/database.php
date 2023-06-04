@@ -14,7 +14,7 @@ class Database{
         if($this->connection->connect_error){
             die("Database connection failed");
         }else{
-            echo "Success";
+            //echo "Success";
         }
     }
 

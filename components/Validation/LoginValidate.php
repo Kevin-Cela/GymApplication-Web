@@ -1,6 +1,6 @@
-<?php require 'SanitizeData.php'?>
-
 <?php
+require('SanitizeData.php');
+require('Authenthicate.php');
 $nameErr = $emailErr = $passwordErr = '';
 $password = $email = '';
 
@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = test_input($_POST['password']);
   }
 
-  if (!empty($emailErr) && !empty($passwordErr)) {
-    // TODO: Send user to XXXX location.
-    header('Location: index.php');
-    exit();
+  if (empty($emailErr) && empty($passwordErr)) {
+    authenthicate($email,$password,$database);
+    
+    //exit();
   }
 }
 

@@ -8,8 +8,8 @@
 </head>
 
 <body class="login-background">
-  <?php require './components/Navigation.php' ?>
   <?php require './components/Validation/RegisterValidate.php' ?>
+  <?php require './components/Navigation.php' ?>
   <h1 class="text-center my-6 text-2xl lg:text-3xl text-slate-200">
     Welcome to The Club
   </h1>
@@ -70,7 +70,7 @@
         </span>
       </div>
       <div class="w-full h-fit flex flex-col space-y-4">
-        <button id="submit" name="submit" class="login-button">Register</button>
+        <input type="submit" name="submit" class="login-button" value="Register">
         <a href="login.php" class="text-sky-600">Have an account?</a>
       </div>
     </form>
