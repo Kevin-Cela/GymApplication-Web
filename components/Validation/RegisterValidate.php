@@ -1,3 +1,4 @@
+<?php require 'SanitizeData.php'?>
 <?php
 $nameErr = $surnameErr = $phoneErr = $emailErr = $passwordErr = $confirmPasswordErr = '';
 $name = $surname = $phone = $email = $password = $confirmPassword = '';
@@ -63,15 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // If there are no errors, you can process the form data further (e.g., store in a database)
     if (empty($nameErr) && empty($surnameErr) && empty($phoneErr) && empty($emailErr) && empty($passwordErr) && empty($confirmPasswordErr)) {
 
-        header('Location: success.php');
+        header('Location: Authenthicate.php');
         exit();
     }
 }
 
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+?>

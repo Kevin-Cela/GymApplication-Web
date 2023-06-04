@@ -1,3 +1,5 @@
+<?php require 'SanitizeData.php'?>
+
 <?php
 $nameErr = $emailErr = $passwordErr = '';
 $password = $email = '';
@@ -42,10 +44,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-function test_input($data)
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+?>
