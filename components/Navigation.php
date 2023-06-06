@@ -1,4 +1,4 @@
-<nav class="w-full h-auto py-2 px-1 bg-logo-orange flex relative z-50">
+<nav class="w-full h-auto py-2 md:py-3 lg:py-4 px-1 bg-logo-orange flex relative z-50">
   <button class="px-4" id="toggle-navigation" data-toggled="false">
     <svg xmlns="http://www.w3.org/2000/svg" class="fill-slate-100" id="Outline" viewBox="0 0 24 24" width="32" height="32">
       <rect y="11" width="24" height="2" rx="1" />
