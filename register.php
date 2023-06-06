@@ -9,7 +9,7 @@
 
 <body class="login-background">
   <?php require './components/Validation/RegisterValidate.php' ?>
-  <?php require './components/Navigation.php' ?>
+  <?php require './components/Navigation/Navigation.php' ?>
   <h1 class="text-center my-6 text-2xl lg:text-3xl text-slate-200">
     Welcome to The Club
   </h1>

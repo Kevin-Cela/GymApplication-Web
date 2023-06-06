@@ -8,7 +8,7 @@
 </head>
 
 <body class="equipment-background">
-  <?php require '../components/Navigation.php' ?>
+  <?php require '../components/Navigation/Navigation.php' ?>
   <img src="/assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 lg:mb-6 pt-3 mx-auto">
   <h1 class="text-center text-2xl lg:text-5xl text-logo-orange font-bold drop-shadow-2xl shadow-black py-2 lg:py-6 pb-4">Request Equipment</h1>
   <div class="container mx-auto">

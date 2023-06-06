@@ -27,7 +27,7 @@
 </style>
 
 <body>
-  <?php require './components/Navigation.php' ?>
+  <?php require './components/Navigation/Navigation.php' ?>
   <?php require './components/Login/Validate.php' ?>
 
   <?php

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <?php require './components/Navigation.php' ?>
+  <?php require './components/Navigation/Navigation.php' ?>
   <main class="container mx-auto pb-12">
     <div class="w-full h-fit p-4 lg:p-20 flex flex-col gap-4 md:gap-6 lg:gap-0 md:flex-row items-center content-center justify-center">
       <?php require './components/Index/Information.php' ?>
