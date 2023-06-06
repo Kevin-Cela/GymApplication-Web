@@ -3,11 +3,11 @@
 <head>
   <title>Registration Form</title>
   <!-- Include Global files -->
-  <?php require './components/globals.php' ?>
+  <?php require '../components/globals.php' ?>
 
   <style>
     body {
-      font-family: ./assets/font/Spectral Bold.ttf;
+      font-family: ../assets/font/Spectral Bold.ttf;
       background-color: #f1f1f1;
     }
     .container {
@@ -96,7 +96,7 @@
   </style>
 </head>
 <body>
-  <?php require './components/Navigation.php' ?>
+  <?php require '../components/Navigation.php' ?>
 
   <?php
     $nameErr = $typeErr = $peopleErr = $descErr ='';

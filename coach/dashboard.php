@@ -73,36 +73,29 @@
   $profilePic = "/assets/images/gym/GymPhoto1.jpeg";
   ?>
 
-<div class="flex flex-row">
-<div class="flex-1/4">
-  <div class="relative top-0 left-0 m-4 bg-white">
+  <div class="relative  m-4 bg-white">
     <div class="relative">
       <div class="rounded-full overflow-hidden w-16 h-16 cursor-pointer" id="profilePicDropdown">
         <img src="<?php echo $profilePic; ?>" alt="Profile Picture" class="object-cover w-full h-full">
       </div>
-      <div id="profileDropdown" class="hidden relative left-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-lg">
+      <div id="profileDropdown" class="hidden absolute z-50 left-0 mt-2 w-40 bg-white border border-gray-300 rounded-lg shadow-lg">
         <a href="/editProfile.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Edit Profile</a>
         <a href="/changePassword.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Change Password</a>
-        <a href="/newCourse.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Create New Course</a>
+        <a href="/create/course.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Create New Course</a>
         <a href="/newEquipment.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Equipment Request</a>
         <a href="/logout.php" class="block px-4 py-2 text-white-800 hover:bg-red-300 transition-colors duration-300 text-white rounded-full p-4 background-color: bg-red-500 rounded-lg">Logout</a>
       </div>
     </div>
   </div>
-  </div>
 
-  <div class="flex-3/4 felx justify-end">
+  <div class="flex flex-col space-y-8 items-center content-center">
       <a href="#" class="course-btn">Course 1</a>
       <a href="#" class="course-btn">Course 2</a>
       <a href="#" class="course-btn">Course 3</a>
       <a href="#" class="course-btn">Course 4</a>
   </div>
-</div>
 
   <div class="flex flex-col h-screen">
-
-
-    
     <div class="flex-1/2 bg-gray-100">
       <div class="p-4 rounded-lg">
         <div class="mt-4 text-center">
@@ -120,7 +113,7 @@
     <div class="flex-1/4 bg-white">
       <div class="p-4 rounded-lg">    
       <h1 class="text-2xl lg:text-3xl text-left font-bold text-gray-800 p-4">Review</h1>
-    <button id="addReviewBtn" class="bg-orange-600 hover:bg-transparent hover:text-slate-800 transition-colors duration-300 text-white rounded-full p-4">
+    <button id="addReviewBtn" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full p-4 w-10 h-10 flex items-center content-center">
       +
     </button>
     <div id="reviewContent" class="hidden opacity-0 transition-opacity duration-200">
@@ -137,7 +130,7 @@
             <textarea id="reviewTextarea" class="w-full px-4 py-2 bg-gray-100 rounded-lg" placeholder="Write your review"></textarea>
 
             <!--Cuna ktu do beni lidhjen me menaxherin qe ti shkoj kjo review-->
-            <button type="submit" class="bg-orange-600 hover:bg-transparent hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4">
+            <button type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4">
               Send
             </button>
           </div>
