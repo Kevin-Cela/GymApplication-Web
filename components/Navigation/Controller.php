@@ -9,8 +9,6 @@ class Navigation
     ##
     ## GET USER SESSION AND ROLE !
     ##
-    session_start();
-    session_regenerate_id();
     if(isset($_SESSION['user'])){
       $this->_user = $_SESSION['user'];
       $this->_role = $_SESSION['role'];
