@@ -2,27 +2,25 @@
 
 abstract class User{
     private $id;
-    private $username;
     private $password;
     private $first_name;
     private $last_name;
-    private $age;
     private $email;
     private $phone_number;
 
-
-    // getters and setters
+    public function __construct($id, $password, $first_name, $last_name, $email, $phone_number){
+    $this->id = $id;
+    $this->password = $password;
+    $this->first_name = $first_name;
+    $this->last_name = $last_name;
+    $this->email = $email;
+    $this->phone_number = $phone_number;
+    }
     public function getId(){
         return $this->id;
     }
     public function setId($id){
         $this->id = $id;
-    }
-    public function getUsername(){
-        return $this->username;
-    }
-    public function setUsername($username){
-        $this->username = $username;
     }
     public function getPassword(){
         return $this->password;
@@ -42,12 +40,6 @@ abstract class User{
     public function setLastName($last_name){
         $this->last_name = $last_name;
     }
-    public function getAge(){
-        return $this->age;
-    }
-    public function setAge($age){
-        $this->age = $age;
-    }
     public function getEmail(){
         return $this->email;
     }
@@ -61,7 +53,6 @@ abstract class User{
         $this->email = $phone_number;
     }
 
+
     //end of getters and setters
 }
-
-?>

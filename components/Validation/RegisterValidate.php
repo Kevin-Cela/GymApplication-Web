@@ -66,7 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // If there are no errors, you can process the form data further (e.g., store in a database)
     if (empty($nameErr) && empty($surnameErr) && empty($phoneErr) && empty($emailErr) && empty($passwordErr) && empty($confirmPasswordErr)) {
-        register($fname,$lname,$phone,$email,$password,$database);
+        if(!isEmailInUse($email,$database)){
+          register($fname,$lname,$phone,$email,$password,$database);
+        }
+        else{
+          $emailErr = 'Email already in use!';
+        }
+        
     }
 }
 

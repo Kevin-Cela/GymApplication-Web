@@ -11,7 +11,7 @@
 
 <body class="login-background">
   <?php require './components/Validation/LoginValidate.php' ?>
-  <?php require './components/Navigation.php' ?>
+  <?php require './components/Navigation/Navigation.php' ?>
 
   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 mb-6 pt-3 mx-auto">
   <h1 class="text-center text-2xl lg:text-3xl text-slate-200">
