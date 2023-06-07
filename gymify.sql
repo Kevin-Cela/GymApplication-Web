@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 02:05 PM
+-- Generation Time: Jun 07, 2023 at 12:33 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `gymify`
 --
+CREATE DATABASE IF NOT EXISTS `gymify` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `gymify`;
 
 -- --------------------------------------------------------
 
@@ -29,11 +31,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `coaches` (
   `id` int(15) NOT NULL,
-  `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `age` int(3) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone_number` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -42,9 +42,9 @@ CREATE TABLE `coaches` (
 -- Dumping data for table `coaches`
 --
 
-INSERT INTO `coaches` (`id`, `username`, `password`, `first_name`, `last_name`, `age`, `email`, `phone_number`) VALUES
-(1, 'klajdik', 'klajdiraku', 'klajdi', '', 0, '', ''),
-(2, 'celakevi', 'kevi123', 'kevin', 'cela', 21, 'kcela21@epoka.edu.al', '0672352365');
+INSERT INTO `coaches` (`id`, `password`, `first_name`, `last_name`, `email`, `phone_number`) VALUES
+(1, 'klajdiraku', 'klajdi', '', '', ''),
+(2, 'Levin123', 'kevin', 'cela', 'kcela21@epoka.edu.al', '0672352365');
 
 -- --------------------------------------------------------
 
@@ -57,7 +57,8 @@ CREATE TABLE `courses` (
   `name` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `price` double(9,2) NOT NULL
+  `price` double(9,2) NOT NULL,
+  `coach_id` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -68,11 +69,9 @@ CREATE TABLE `courses` (
 
 CREATE TABLE `managers` (
   `id` int(15) NOT NULL,
-  `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `age` int(3) NOT NULL,
   `email` varchar(50) NOT NULL,
   `phone_number` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,21 +84,21 @@ CREATE TABLE `managers` (
 
 CREATE TABLE `members` (
   `id` int(15) NOT NULL,
-  `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `age` int(3) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `phone_number` varchar(20) NOT NULL
+  `phone_number` varchar(20) NOT NULL,
+  `plan_id` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`id`, `username`, `password`, `first_name`, `last_name`, `age`, `email`, `phone_number`) VALUES
-(1, 'henrih', 'henri123', 'henri', '', 0, '', '');
+INSERT INTO `members` (`id`, `password`, `first_name`, `last_name`, `email`, `phone_number`, `plan_id`) VALUES
+(1, 'Henri123', 'henri', 'hatija', 'hhatija21@epoka.edu.al', '', NULL),
+(2, 'Kevin123', 'Kevin', 'Cela', 'celakevin2003@gmail.com', '0674801496', NULL);
 
 -- --------------------------------------------------------
 
@@ -142,7 +141,8 @@ ALTER TABLE `coaches`
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `coach_id` (`coach_id`);
 
 --
 -- Indexes for table `managers`
@@ -154,7 +154,8 @@ ALTER TABLE `managers`
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `plan_id` (`plan_id`);
 
 --
 -- Indexes for table `plans`
@@ -194,7 +195,7 @@ ALTER TABLE `managers`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `plans`
@@ -207,6 +208,22 @@ ALTER TABLE `plans`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `courses`
+--
+ALTER TABLE `courses`
+  ADD CONSTRAINT `courses_ibfk_1` FOREIGN KEY (`coach_id`) REFERENCES `coaches` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+
+--
+-- Constraints for table `members`
+--
+ALTER TABLE `members`
+  ADD CONSTRAINT `members_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
