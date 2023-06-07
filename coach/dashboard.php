@@ -58,9 +58,6 @@
   color: #666;
 }
 
-.course-btn {
-
-}
 
 </style>
 
@@ -82,30 +79,43 @@
         <a href="/editProfile.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Edit Profile</a>
         <a href="/changePassword.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Change Password</a>
         <a href="/create/course.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Create New Course</a>
-        <a href="/newEquipment.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Equipment Request</a>
+        <a href="/order/equipment.php" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-300 text-black rounded-full p-4 rounded-lg">Equipment Request</a>
         <a href="/logout.php" class="block px-4 py-2 text-white-800 hover:bg-red-300 transition-colors duration-300 text-white rounded-full p-4 background-color: bg-red-500 rounded-lg">Logout</a>
       </div>
     </div>
   </div>
 
-  <div class="flex flex-col space-y-8 items-center content-center">
-      <a href="#" class="course-btn">Course 1</a>
-      <a href="#" class="course-btn">Course 2</a>
-      <a href="#" class="course-btn">Course 3</a>
-      <a href="#" class="course-btn">Course 4</a>
-  </div>
+<div class="grid grid-cols-2 grid-rows-2 gap-4">
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 1</a>
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 2</a>
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 3</a>
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 4</a>
+</div>
 
-  <div class="flex flex-col h-screen">
-    <div class="flex-1/2 bg-gray-100">
-      <div class="p-4 rounded-lg">
-        <div class="mt-4 text-center">
-          <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
-          <div id="timetable" class="flex flex-wrap justify-center mt-2">
-            <!-- Timetable slots go here -->
-          </div>
-        </div>
-      </div>
+<br> 
+<div class="mt-4 text-center">
+  <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
+  <form id="timetableForm">
+    <div>
+      <label for="meetingName" class="text-gray-800">Meeting Name:</label>
+      <input type="text" id="meetingName" name="meetingName" placeholder="Enter meeting name" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
     </div>
+  <div>
+      <label for="startTime" class="text-gray-800">Start Time:</label>
+      <input type="time" id="startTime" name="startTime" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
+    </div>
+    <div>
+      <label for="endTime" class="text-gray-800">End Time:</label>
+      <input type="time" id="endTime" name="endTime" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
+    </div>
+    <button type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4 mt-4">
+      Add Meeting
+    </button>
+  </form>
+  <div id="timetable" class="flex flex-wrap justify-center mt-2">
+    <!-- Timetable slots go here -->
+  </div>
+</div>
 
 
 
@@ -199,38 +209,31 @@ profilePicDropdown.addEventListener("click", function(event) {
   isDropdownOpen = !isDropdownOpen;
 });
 
-// Add JavaScript code for the timetable interactivity
-const timetable = document.getElementById("timetable");
+    const timetableForm = document.getElementById("timetableForm");
+    const timetable = document.getElementById("timetable");
 
-// Sample timetable data
-const timetableData = [
-  { name: "Meeting 1", time: "09:00 AM - 10:30 AM" },
-  { name: "Meeting 2", time: "11:00 AM - 12:30 PM" },
-  { name: "Lunch Break", time: "12:30 PM - 01:30 PM" },
-  { name: "Meeting 3", time: "02:00 PM - 03:30 PM" },
-  { name: "Meeting 4", time: "04:00 PM - 05:30 PM" },
-];
+    timetableForm.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-// Render the timetable slots
-timetableData.forEach((slot) => {
-  const slotElement = document.createElement("div");
-  slotElement.classList.add("timetable-slot");
-  slotElement.innerHTML = `
-    <div class="event">
-      <div class="event-name">${slot.name}</div>
-      <div class="event-time">${slot.time}</div>
-    </div>
-  `;
-  timetable.appendChild(slotElement);
-});
+      const meetingName = document.getElementById("meetingName").value;
+      const startTime = document.getElementById("startTime").value;
+      const endTime = document.getElementById("endTime").value;
 
-// Add event listeners to toggle active class on timetable slots
-const slots = document.querySelectorAll(".timetable-slot");
-slots.forEach((slot) => {
-  slot.addEventListener("click", () => {
-    slot.classList.toggle("active");
-  });
-});
+      const slotElement = document.createElement("div");
+      slotElement.classList.add("timetable-slot");
+      slotElement.innerHTML = `
+        <div class="event">
+          <div class="event-name">${meetingName}</div>
+          <div class="event-time">${startTime} - ${endTime}</div>
+        </div>
+      `;
+
+      timetable.appendChild(slotElement);
+
+      timetableForm.reset();
+    });
+
+
 
 
 document.addEventListener("click", function(event) {

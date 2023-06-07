@@ -50,7 +50,7 @@
       </div>
     </form>
   </div>
-  <?php require './components/Footer/Footer.php' ?>
+  <?php require '../components/Footer/Footer.php' ?>
 
 </body>
 
