@@ -82,48 +82,50 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-2 grid-rows-2 gap-4">
-    <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 1</a>
-    <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 2</a>
-    <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 3</a>
-    <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 4</a>
-  </div>
+<h1 class="text-2xl lg:text-3xl text-center font-bold text-gray-800 p-4">Courses</h1>
+<div class="grid grid-cols-2 grid-rows-2 gap-4 mx-auto p-4 lg:p-8 ">
 
-  <br>
-  <div class="mt-4 text-center">
-    <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
-    <form id="timetableForm">
-      <div>
-        <label for="meetingName" class="text-gray-800">Meeting Name:</label>
-        <input type="text" id="meetingName" name="meetingName" placeholder="Enter meeting name" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
-      </div>
-      <div>
-        <label for="startTime" class="text-gray-800">Start Time:</label>
-        <input type="time" id="startTime" name="startTime" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
-      </div>
-      <div>
-        <label for="endTime" class="text-gray-800">End Time:</label>
-        <input type="time" id="endTime" name="endTime" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
-      </div>
-      <button type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4 mt-4">
-        Add Meeting
-      </button>
-    </form>
-    <div id="timetable" class="flex flex-wrap justify-center mt-2">
-      <!-- Timetable slots go here -->
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 1</a>
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 2</a>
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 3</a>
+  <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 4</a>
+</div>
+
+<br> 
+<div class="mt-4 text-center mx-auto p-4 lg:p-8">
+  <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
+  <form id="timetableForm">
+    <div>
+      <label for="meetingName" class="text-gray-800">Meeting Name:</label>
+      <input type="text" id="meetingName" name="meetingName" placeholder="Enter meeting name" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
     </div>
+  <div>
+      <label for="startTime" class="text-gray-800">Start Time:</label>
+      <input type="time" id="startTime" name="startTime" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
+    </div>
+    <div>
+      <label for="endTime" class="text-gray-800">End Time:</label>
+      <input type="time" id="endTime" name="endTime" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
+    </div>
+    <button type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4 mt-4">
+      Add Meeting
+    </button>
+  </form>
+  <div id="timetable" class="flex flex-wrap justify-center mt-2">
+    <!-- Timetable slots go here -->
   </div>
+</div>
 
 
 
 
-  <div class="flex-1/4 bg-white">
-    <div class="p-4 rounded-lg">
-      <h1 class="text-2xl lg:text-3xl text-left font-bold text-gray-800 p-4">Review</h1>
-      <button id="addReviewBtn" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full p-4 w-10 h-10 flex items-center content-center">
-        +
-      </button>
-      <div id="reviewContent" class="hidden opacity-0 transition-opacity duration-200">
+    <div class="flex-1/4 bg-white">
+      <div class="p-4 rounded-lg">    
+      <h1 class="text-2xl lg:text-3xl text-center font-bold text-gray-800 p-4">Review</h1>
+    <button id="addReviewBtn" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full p-4 w-10 h-10 flex items-center content-center">
+      +
+    </button>
+    <div id="reviewContent" class="hidden opacity-0 transition-opacity duration-200">
         <form id="reviewForm">
           <div class="flex flex-col space-y-4">
             <div>
