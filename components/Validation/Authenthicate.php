@@ -56,18 +56,21 @@ function isEmailInUse($email, $database){
     $stm1->bind_param("s", $email);
     $stm1->execute();
     $res1 = $stm1->get_result();
+    $row1 = $res1->fetch_assoc();
 
     $stm2 = $database->connection->prepare("SELECT email FROM `coaches` WHERE email=(?)");
     $stm2->bind_param("s", $email);
     $stm2->execute();
     $res2 = $stm2->get_result();
+    $row2 = $res2->fetch_assoc();
 
     $stm3 = $database->connection->prepare("SELECT email FROM `managers` WHERE email=(?)");
     $stm3->bind_param("s", $email);
     $stm3->execute();
     $res3 = $stm3->get_result();
+    $row3 = $res3->fetch_assoc();
 
-    if($res1 == null && $res2 == null && $res3 == null){
+    if($row1 == null && $row2 == null && $row3 == null){
         return false;
     }
     else{
