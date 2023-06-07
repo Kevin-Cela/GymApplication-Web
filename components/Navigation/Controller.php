@@ -9,8 +9,16 @@ class Navigation
     ##
     ## GET USER SESSION AND ROLE !
     ##
-    $this->_user = $_SESSION['user'];
-    $this->_role = $_SESSION['role'];
+    session_start();
+    session_regenerate_id();
+    if(isset($_SESSION['user'])){
+      $this->_user = $_SESSION['user'];
+      $this->_role = $_SESSION['role'];
+    }
+    else{
+      $this->_user = null;
+      $this->_role = null;
+    }
   }
 
   function getUser()
@@ -25,7 +33,7 @@ class Navigation
 
   function renderNavigation()
   {
-    if ($this->getUser() && $this->getRole()) {
+    if ($this->getUser()!= null && $this->getRole()!= null) {
       switch ($this->getRole()) {
         case 'MANAGER':
           return $this->renderManagerNavigation();
