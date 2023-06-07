@@ -61,9 +61,9 @@
 
 </style>
 
-<body>
+<body class = "bg-white">
   <?php require '../components/Navigation/Navigation.php' ?>
-  <!-- <?php require './components/Login/Validate.php' ?> -->
+   <!-- <?php require './components/Login/Validate.php' ?> -->
 
   <?php
   $userName = "Kak Kaka";
