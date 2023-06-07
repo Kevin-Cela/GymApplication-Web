@@ -83,8 +83,6 @@ function register($fname, $lname, $phone, $email, $password, $database)
 
     $stm->bind_param("sssss", $password, $fname, $lname, $email, $phone);
     $stm->execute();
-    $res = $stm->get_result();
 
     authenthicate($email, $password, $database);
 }
-?>
