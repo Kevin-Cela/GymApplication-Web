@@ -36,9 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 
   if (empty($emailErr) && empty($passwordErr)) {
-    authenthicate($email,$password,$database);
-    
+    authenthicate($email, $password, $database);
+
     //exit();
   }
 }
-
