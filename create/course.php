@@ -107,7 +107,7 @@
 </head>
 
 <body>
-  <?php require '../components/Navigation.php' ?>
+  <?php require '../components/Navigation/Navigation.php' ?>
 
   <?php
   $nameErr = $typeErr = $peopleErr = $descErr = '';
@@ -193,16 +193,16 @@
       <span class="error"><?php echo $descErr; ?></span>
 
     </form>
-    <button type="submit">Register</button>
-    <button onclick="redirectToPage()">Back</button>
-    <script>
-      function redirectToPage() {
-        window.location.href = '/coachDashboard.php';
-      }
-    </script>
+          <button type="submit">Register</button>
+          <button onclick="redirectToPage()">Back</button>
+          <script>
+          function redirectToPage() {
+            window.location.href = '/coachDashboard.php';
+            }
+            </script>
 
-  </div>
-  <?php require './components/Footer/Footer.php' ?>
+      </div>
+  <?php require '../components/Footer/Footer.php' ?>
 
 </body>
 

@@ -82,17 +82,46 @@
     </div>
   </div>
 
-<h1 class="text-2xl lg:text-3xl text-center font-bold text-gray-800 p-4">Courses</h1>
-<div class="grid grid-cols-2 grid-rows-2 gap-4 mx-auto p-4 lg:p-8 ">
 
+
+<h1 class="text-2xl lg:text-3xl text-center font-bold text-gray-800 p-4">Courses</h1>
+<div class="grid grid-cols-2 grid-rows-2 gap-4 w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
+
+ <?php
+$courses = [
+    [
+        'name' => 'Course A',
+        'id' => 1,
+    ],
+    [
+        'name' => 'Course B',
+        'id' => 2,
+    ],
+    [
+        'name' => 'Course C',
+        'id' => 3,
+    ],
+];
+
+if ($courses !== null) {
+    foreach ($courses as $course) {
+        echo '<a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">' . $course['name'] . '</a>';
+    }
+} else {
+    echo '<a href="/create/course.php" class="col-span-2 row-span-2 bg-red-600 p-4 rounded-full hover:bg-red-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider text-center">Create New Course</a>
+';
+}
+?> 
+
+<!--
   <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 1</a>
   <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 2</a>
   <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 3</a>
   <a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">Course 4</a>
+-->
 </div>
-
 <br> 
-<div class="mt-4 text-center mx-auto p-4 lg:p-8">
+<div class="mt-4 text-center w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
   <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
   <form id="timetableForm">
     <div>
@@ -119,10 +148,10 @@
 
 
 
-    <div class="flex-1/4 bg-white">
+    <div class="flex-1/4 bg-white w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
       <div class="p-4 rounded-lg">    
       <h1 class="text-2xl lg:text-3xl text-center font-bold text-gray-800 p-4">Review</h1>
-    <button id="addReviewBtn" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full p-4 w-10 h-10 flex items-center content-center">
+    <button id="addReviewBtn" class=" bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full p-4 w-10 h-10 flex items-center content-center">
       +
     </button>
     <div id="reviewContent" class="hidden opacity-0 transition-opacity duration-200">
