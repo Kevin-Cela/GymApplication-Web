@@ -1,6 +1,6 @@
 <?php
 
-abstract class User{
+class User{
     private $id;
     private $password;
     private $first_name;

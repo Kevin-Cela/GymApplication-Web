@@ -1,8 +1,6 @@
 <?php
 require_once('backend/database.php');
-require('backend/models/member.php');
-require('backend/models/coach.php');
-require('backend/models/manager.php');
+
 
 function authenthicate($email, $password, $database)
 {
@@ -14,7 +12,7 @@ function authenthicate($email, $password, $database)
 
   if ($row != null) {
     session_start();
-    $member = new Member($row['id'], $row['password'], $row['first_name'], $row['last_name'], $row['email'], $row['phone_number']);
+    $member = new User($row['id'], $row['password'], $row['first_name'], $row['last_name'], $row['email'], $row['phone_number']);
     $_SESSION['user'] = serialize($member);
     $_SESSION['role'] = 'MEMBER';
     header('Location: index.php');
@@ -27,7 +25,7 @@ function authenthicate($email, $password, $database)
     $row = $res->fetch_assoc();
     if ($row != null) {
       session_start();
-      $coach = new Coach($row['id'], $row['password'], $row['first_name'], $row['last_name'], $row['email'], $row['phone_number']);
+      $coach = new User($row['id'], $row['password'], $row['first_name'], $row['last_name'], $row['email'], $row['phone_number']);
       $_SESSION['user'] = $coach;
       $_SESSION['role'] = 'COACH';
       header('Location: index.php');
@@ -40,7 +38,7 @@ function authenthicate($email, $password, $database)
       $row = $res->fetch_assoc();
       if ($row != null) {
         session_start();
-        $manager = new Manager($row['id'], $row['password'], $row['first_name'], $row['last_name'], $row['email'], $row['phone_number']);
+        $manager = new User($row['id'], $row['password'], $row['first_name'], $row['last_name'], $row['email'], $row['phone_number']);
         $_SESSION['user'] = $manager;
         $_SESSION['role'] = 'MANAGER';
         header('Location: index.php');

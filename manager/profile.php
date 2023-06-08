@@ -5,7 +5,6 @@
   <title>Gymify | Manager Dashboard</title>
   <!-- Include Global files -->
   <?php require '../components/globals.php' ?>
-  <?php require '../backend/models/manager.php' ?>
 </head>
 
 <body class="bg-slate-300">
@@ -20,7 +19,7 @@
         </p>
         <p class="text-lg">Role :
           <small class="text-base">
-            <?php echo $_SESSION['role']; ?>
+            <?php echo $_SESSION['role']; echo ((unserialize($_SESSION['user']))->getFirstName())?>
           </small>
         </p>
       </div>
