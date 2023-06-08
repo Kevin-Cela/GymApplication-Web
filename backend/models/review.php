@@ -5,7 +5,7 @@ class Review{
     public $name;
     public $surname;
     public $content;
-    public $course_id;
+    public $coach_id;
 }
 
 ?>
