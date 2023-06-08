@@ -1,3 +1,36 @@
+<?php
+require_once("../backend/database.php");
+require_once("../backend/models/course.php");
+require_once("../backend/models/coach.php");
+require_once("../backend/models/review.php");
+
+global $database;
+$coach = new Coach("", "", "", "", "", "");
+$coach_id = $_GET['id'];
+$sql = "SELECT * FROM coaches WHERE id = {$coach_id} LIMIT 1";
+$result_set = $database->query($sql);
+$row = mysqli_fetch_array($result_set);
+foreach($row as $attr => $val){
+  $coach->$attr = $val;
+}
+
+
+$reviews = array();
+$sql = "select * from reviews where coach_id = {$coach_id}";
+$result_set = $database->query($sql);
+while($row = mysqli_fetch_array($result_set)){
+  $review = new Review();
+  foreach($row as $attribute => $value){
+    $review->$attribute = $value;
+    
+  }
+  $reviews[] = $review;
+}
+$latest_review = $reviews[count($reviews) - 1];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,24 +121,38 @@
 <div class="grid grid-cols-2 grid-rows-2 gap-4 w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
 
  <?php
-$courses = [
-    [
-        'name' => 'Course A',
-        'id' => 1,
-    ],
-    [
-        'name' => 'Course B',
-        'id' => 2,
-    ],
-    [
-        'name' => 'Course C',
-        'id' => 3,
-    ],
-];
+  global $database;
+   $sql = "SELECT * FROM courses WHERE coach_id = {$coach->id}";
+ $courses = array();
+ $result_set = $database->query($sql);
+ while($row = mysqli_fetch_array($result_set)){
+    $course = new Course();
+    foreach($row as $attribute => $value){
+      $course->$attribute = $value;
+      
+    }
+    $courses[] = $course;
+ }
+
+
+// $courses = [
+//     [
+//         'name' => 'Course A',
+//         'id' => 1,
+//     ],
+//     [
+//         'name' => 'Course B',
+//         'id' => 2,
+//     ],
+//     [
+//         'name' => 'Course C',
+//         'id' => 3,
+//     ],
+// ];
 
 if ($courses !== null) {
     foreach ($courses as $course) {
-        echo '<a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">' . $course['name'] . '</a>';
+        echo '<a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">' . $course->name . '</a>';
     }
 } else {
     echo '<a href="/create/course.php" class="col-span-2 row-span-2 bg-red-600 p-4 rounded-full hover:bg-red-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider text-center">Create New Course</a>
@@ -155,7 +202,7 @@ if ($courses !== null) {
       +
     </button>
     <div id="reviewContent" class="hidden opacity-0 transition-opacity duration-200">
-        <form id="reviewForm">
+        <form method="post" action="addReview.php?coach_id=<?php echo $coach->id;?>"  id="reviewForm">
           <div class="flex flex-col space-y-4">
             <div>
               <label for="name" class="text-gray-800">Name:</label>
@@ -165,52 +212,65 @@ if ($courses !== null) {
               <label for="surname" class="text-gray-800">Surname:</label>
               <input type="text" id="surname" name="surname" placeholder="Enter your surname" class="w-full px-4 py-2 bg-gray-100 rounded-lg" required>
             </div>
-            <textarea id="reviewTextarea" class="w-full px-4 py-2 bg-gray-100 rounded-lg" placeholder="Write your review"></textarea>
+            <textarea name="content" id="reviewTextarea" class="w-full px-4 py-2 bg-gray-100 rounded-lg" placeholder="Write your review"></textarea>
 
             <!--Cuna ktu do beni lidhjen me menaxherin qe ti shkoj kjo review-->
-            <button type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4">
-              Send
-            </button>
+            <input name="submit" type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4" value="Send">
+              <!-- Send
+            </button> -->
           </div>
         </form>
       </div>
-      <div id="reviewList" class="mt-4 hidden">
+      <div id="reviewList" class="mt-4">
         <div class="bg-white p-4 rounded-lg">
           <h1 class="text-xl font-bold text-gray-800">Latest Review:</h1>
-          <div id="latestReview" class="mt-2"></div>
+          <div id="latestReview" class="mt-2">
+            <h2 class="text-lg font-bold text-gray-800"><?php echo $latest_review->name. " " . $latest_review->surname; ?></h2>
+            <p class="text-gray-600"><?php echo $latest_review->content; ?></p>
+          </div>
         </div>
+        <?php foreach($reviews as $review) : ?>
+          <?php if($review == $latest_review) continue; ?>
+          <div class="bg-white p-4 rounded-lg">
+            <div class="mt-2">
+              <h2 class="text-lg font-bold text-gray-800"><?php echo $review->name. " " . $review->surname; ?></h2>
+              <p class="text-gray-600"><?php echo $review->content; ?></p>
+            </div>
+          </div>
+        <?php endforeach ?>
       </div>
     </div>
   </div>
 
 
+
   <script>
-    reviewForm.addEventListener("submit", function(event) {
-      event.preventDefault();
+    // reviewForm.addEventListener("submit", function(event) {
+    //   event.preventDefault();
 
-      var name = document.getElementById("name").value;
-      var surname = document.getElementById("surname").value;
-      var review = document.getElementById("reviewTextarea").value;
+    //   var name = document.getElementById("name").value;
+    //   var surname = document.getElementById("surname").value;
+    //   var review = document.getElementById("reviewTextarea").value;
 
-      var reviewItem = document.createElement("div");
-      reviewItem.classList.add("bg-white", "p-4", "rounded-lg", "mb-4");
-      reviewItem.innerHTML = `
-      <h2 class="text-lg font-bold text-gray-800">${name} ${surname}</h2>
-      <p class="text-gray-600">${review}</p>
-    `;
+    //   var reviewItem = document.createElement("div");
+    //   reviewItem.classList.add("bg-white", "p-4", "rounded-lg", "mb-4");
+    //   reviewItem.innerHTML = `
+    //   <h2 class="text-lg font-bold text-gray-800">${name} ${surname}</h2>
+    //   <p class="text-gray-600">${review}</p>
+    // `;
 
-      latestReview.innerHTML = "";
-      latestReview.appendChild(reviewItem);
+    //   latestReview.innerHTML = "";
+    //   latestReview.appendChild(reviewItem);
 
-      reviewForm.reset();
-      reviewContent.style.opacity = "0";
-      reviewContent.addEventListener("transitionend", function() {
-        reviewContent.classList.add("hidden");
-        reviewList.classList.remove("hidden");
-      }, {
-        once: true
-      });
-    });
+    //   reviewForm.reset();
+    //   reviewContent.style.opacity = "0";
+    //   reviewContent.addEventListener("transitionend", function() {
+    //     reviewContent.classList.add("hidden");
+    //     reviewList.classList.remove("hidden");
+    //   }, {
+    //     once: true
+    //   });
+    // });
 
 
 
