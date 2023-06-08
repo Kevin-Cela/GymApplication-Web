@@ -23,6 +23,12 @@ class Navigation
     return $this->_user;
   }
 
+  function logout()
+  {
+    session_unset();
+    header("Location: /", true);
+  }
+
   function getRole()
   {
     return $this->_role;
@@ -60,13 +66,13 @@ class Navigation
             <a href="/" class="transition-all duration-300 ease-in-out md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Home</a>
           </li>
           <li class="px-2 py-4 lg:p-4">
-            <a href="/about_us.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">About Us</a>
-          </li>
-          <li class="px-2 py-4 lg:p-4">
             <a href="/manager/profile.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Profile</a>
           </li>
           <li class="px-2 py-4 lg:p-4">
-            <a href="/manager/dashboard.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Dashboard</a>
+            <a href="/order/equipment.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Equipments</a>
+          </li>
+          <li class="px-2 py-4 lg:p-4">
+            <a href="/logout.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Log Out</a>
           </li>
         </ul>
       ';
@@ -90,9 +96,6 @@ class Navigation
             <a href="/" class="transition-all duration-300 ease-in-out md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Home</a>
           </li>
           <li class="px-2 py-4 lg:p-4">
-            <a href="/about_us.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">About Us</a>
-          </li>
-          <li class="px-2 py-4 lg:p-4">
             <a href="/coach/profile.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Profile</a>
           </li>
           <li class="px-2 py-4 lg:p-4">
@@ -100,6 +103,12 @@ class Navigation
           </li>
           <li class="px-2 py-4 lg:p-4">
             <a href="/create/course.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Create Course</a>
+          </li>
+          <li class="px-2 py-4 lg:p-4">
+            <a href="/order/equipment.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Equipments</a>
+          </li>
+          <li class="px-2 py-4 lg:p-4">
+            <a href="/logout.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Log Out</a>
           </li>
         </ul>
       ';
@@ -130,6 +139,9 @@ class Navigation
           </li>
           <li class="px-2 py-4 lg:p-4">
             <a href="/view/courses.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">My Courses</a>
+          </li>
+          <li class="px-2 py-4 lg:p-4">
+            <a href="/logout.php" class="transition-all duration-300 md:text-xl text-slate-200 tracking-wide text-base p-1 border-b-2 border-transparent hover:border-b-white">Log Out</a>
           </li>
         </ul>
       ';
