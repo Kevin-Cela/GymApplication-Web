@@ -121,6 +121,7 @@ if ($courses !== null) {
 -->
 </div>
 <br> 
+
 <div class="mt-4 text-center w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
   <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
   <form id="timetableForm">
@@ -141,7 +142,6 @@ if ($courses !== null) {
     </button>
   </form>
   <div id="timetable" class="flex flex-wrap justify-center mt-2">
-    <!-- Timetable slots go here -->
   </div>
 </div>
 
@@ -269,6 +269,8 @@ if ($courses !== null) {
         profileDropdown.classList.remove("fade-in");
         profileDropdown.classList.add("hidden");
         isDropdownOpen = false;
+
+        
       }
     });
 
@@ -293,6 +295,8 @@ if ($courses !== null) {
         });
       }
     });
+
+    
   </script>
 </body>
 
