@@ -18,10 +18,8 @@
           <?php
           ?>
         </p>
-        <p class="text-lg">Role :
-          <small class="text-base">
-            <?php echo $_SESSION['role']; ?>
-          </small>
+        <p class="text-lg">
+          <?php var_dump($_SESSION['user']) ?>
         </p>
       </div>
     </div>
