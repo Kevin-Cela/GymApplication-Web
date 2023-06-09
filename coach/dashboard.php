@@ -1,18 +1,12 @@
 <?php
 require_once("../backend/database.php");
-require_once("../backend/models/course.php");
-require_once("../backend/models/coach.php");
+require '../components/globals.php';
+require ($_SERVER['DOCUMENT_ROOT'] .'/backend/models/course.php');
 require_once("../backend/models/review.php");
 
 global $database;
-$coach = new Coach("", "", "", "", "", "");
-$coach_id = $_GET['id'];
-$sql = "SELECT * FROM coaches WHERE id = {$coach_id} LIMIT 1";
-$result_set = $database->query($sql);
-$row = mysqli_fetch_array($result_set);
-foreach($row as $attr => $val){
-  $coach->$attr = $val;
-}
+$coach = $_SESSION['user'];
+$coach_id = $_SESSION['user']->getID();
 
 
 $reviews = array();
@@ -26,7 +20,16 @@ while($row = mysqli_fetch_array($result_set)){
   }
   $reviews[] = $review;
 }
-$latest_review = $reviews[count($reviews) - 1];
+if (count($reviews) > 0){
+  $latest_review = $reviews[count($reviews) - 1];
+}
+else{
+  $latest_review = new Review();
+  $latest_review->name = "";
+  $latest_review->surname = "";
+  $latest_review->content = "";
+}
+
 
 
 ?>
@@ -40,7 +43,7 @@ $latest_review = $reviews[count($reviews) - 1];
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gymify | Coach Dashboard</title>
   <!-- Include Global files -->
-  <?php require '../components/globals.php' ?>
+  
 </head>
 
 <style>
@@ -223,7 +226,16 @@ if ($courses !== null) {
       </div>
       <div id="reviewList" class="mt-4">
         <div class="bg-white p-4 rounded-lg">
-          <h1 class="text-xl font-bold text-gray-800">Latest Review:</h1>
+          <h1 class="text-xl font-bold text-gray-800">
+            <?php if (count($reviews) == 1){
+              if($latest_review->name == ""){
+                echo "";
+              }
+              else{
+                echo "Latest Review:";
+              }
+          } ?>
+          </h1>
           <div id="latestReview" class="mt-2">
             <h2 class="text-lg font-bold text-gray-800"><?php echo $latest_review->name. " " . $latest_review->surname; ?></h2>
             <p class="text-gray-600"><?php echo $latest_review->content; ?></p>
