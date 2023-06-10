@@ -5,6 +5,7 @@
   <title>Gymify | Manager Dashboard</title>
   <!-- Include Global files -->
   <?php require '../components/globals.php' ?>
+  <?php require '../components/Review.php' ?>
 </head>
 
 <body class="bg-slate-300">
@@ -29,42 +30,13 @@
     <h1 class="text-2xl lg:text-3xl text-center tracking-wider text-gray-800 p-4">Latest Reviews</h1>
     <div class="grid w-full h-fit grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-slate-200 gap-y-4 lg:gap-y-12 py-6 place-items-center">
       <!-- GET REVIEWS FROM DATABASE -->
-      <div class="p-4 rounded-lg border border-slate-700 w-fit h-fit max-h-40">
-        <p class="md:text-xl text-lg tracking-wide text-center">Review for Henri Hoxha </p>
-        <p class="md:text-xl text-lg tracking-wide text-left">Review Content</p>
-        <p class="text-sm tracking-wide text-right">Time published</p>
-        <div class="py-4">
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-green-600 hover:bg-green-500 hover:text-slate-800 focus:bg-green-500 transition-colors duration-300 ease-in-out">Approve Review</button>
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-red-600 hover:bg-red-500 hover:text-slate-200 focus:bg-red-500 focus:text-slate-200 transition-colors duration-300 ease-in-out">Decline Review</button>
-        </div>
-      </div>
-      <div class="p-4 rounded-lg border border-slate-700 w-fit h-fit max-h-40">
-        <p class="md:text-xl text-lg tracking-wide text-center">Review for Geri Xhaho</p>
-        <p class="md:text-xl text-lg tracking-wide text-left">Review Content</p>
-        <p class="text-sm tracking-wide text-right">Time published</p>
-        <div class="py-4">
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-green-600 hover:bg-green-500 hover:text-slate-800 focus:bg-green-500 transition-colors duration-300 ease-in-out">Approve Review</button>
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-red-600 hover:bg-red-500 hover:text-slate-200 focus:bg-red-500 focus:text-slate-200 transition-colors duration-300 ease-in-out">Decline Review</button>
-        </div>
-      </div>
-      <div class="p-4 rounded-lg border border-slate-700 w-fit h-fit max-h-40">
-        <p class="md:text-xl text-lg tracking-wide text-center">Review for Kevi Cela</p>
-        <p class="md:text-xl text-lg tracking-wide text-left">Review Content</p>
-        <p class="text-sm tracking-wide text-right">Time published</p>
-        <div class="py-4">
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-green-600 hover:bg-green-500 hover:text-slate-800 focus:bg-green-500 transition-colors duration-300 ease-in-out">Approve Review</button>
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-red-600 hover:bg-red-500 hover:text-slate-200 focus:bg-red-500 focus:text-slate-200 transition-colors duration-300 ease-in-out">Decline Review</button>
-        </div>
-      </div>
-      <div class="p-4 rounded-lg border border-slate-700 w-fit h-fit max-h-40">
-        <p class="md:text-xl text-lg tracking-wide text-center">Review for Alvi Dervishaj </p>
-        <p class="md:text-xl text-lg tracking-wide text-left">Review Content</p>
-        <p class="text-sm tracking-wide text-right">Time published</p>
-        <div class="py-4">
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-green-600 hover:bg-green-500 hover:text-slate-800 focus:bg-green-500 transition-colors duration-300 ease-in-out">Approve Review</button>
-          <button class="w-fit h-fit px-3 py-1 tracking-wider text-lg border rounded-md border-red-600 hover:bg-red-500 hover:text-slate-200 focus:bg-red-500 focus:text-slate-200 transition-colors duration-300 ease-in-out">Decline Review</button>
-        </div>
-      </div>
+      <?php
+      # get * ALL * reviews from database
+      for ($i = 0; $i < 5; $i++) {
+        $review = new Review($_SESSION['role']);
+        echo ($review->managerReview("Alvi", "Dervishaj", "This is a test review", "10/06/2023", $i == 2 ? "ACCEPTED" : "UNREVIEWED"));
+      }
+      ?>
     </div>
   </main>
 </body>
