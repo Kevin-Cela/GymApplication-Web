@@ -10,7 +10,7 @@
 
 
 <body class="login-background">
-  <?php require './components/Validation/LoginValidate.php' ?>
+  <!-- <?php require './components/Validation/LoginValidate.php' ?> -->
   <?php require './components/Navigation/Navigation.php' ?>
 
   <img src="./assets/logo/svg/logo-no-background.svg" alt="Logo" class="w-28 h-28 mb-6 pt-3 mx-auto">
@@ -18,7 +18,7 @@
     Welcome Back
   </h1>
   <div class="my-10 shadow-lg drop-shadow-lg mx-auto p-4 lg:p-8 border border-slate-300 rounded-xl bg-body-light w-10/12 md:w-10/12 lg:w-1/2 xl:w-1/3">
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+    <!-- <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"> -->
       <div class="w-full h-fit">
         <label for="email" class="text-slate-800 tracking-wider text-base lg:text-lg">Email</label>
         <input type="text" id="email" name="email" class="input-special" placeholder="Enter your email" value="<?php echo $email; ?>">
@@ -30,7 +30,7 @@
         <span class="text-red-700 pb-6"><?php echo $passwordErr; ?></span>
       </div>
       <input type="submit" name="submit" class="login-button" value="Log In">
-    </form>
+    <!-- </form> -->
     <div class="mt-5 flex flex-col lg:flex-row items-center content-center justify-evenly lg:justify-center gap-4">
       <a href="/forgot_password.php" class="text-sky-600 lg:text-center hover:text-sky-500 w-full">Forgot Password?</a>
       <span class="w-0.5 h-5 bg-slate-500 hidden lg:block"></span>

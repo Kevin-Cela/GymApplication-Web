@@ -57,6 +57,51 @@
   .timetable-slot .event-time {
     color: #666;
   }
+   .course-button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: #F97316;
+        color: #F8F8F8;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .course-button:hover {
+        background-color: #FB923C;
+    }
+
+    .course-name {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .course-details {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .delete-course {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        color: #F97316;
+        font-size: 18px;
+        cursor: pointer;
+    }
 </style>
 
 <body class="bg-white">
@@ -90,23 +135,50 @@
  <?php
 $courses = [
     [
-        'name' => 'Course A',
+        'name' => 'Sleeping',
         'id' => 1,
+        'desc' =>'Come Spleep with Klajdi!',
+        'startTime' => '12:00',
+        'endTime' => '13:00',
+        'date' => 'Sunday',
+        'attended'  => 'Attended: 50/50'
+
     ],
     [
-        'name' => 'Course B',
+        'name' => 'Swimming',
         'id' => 2,
+        'desc' =>'Come Swim with Klajdi!',
+        'startTime' => '12:00',
+        'endTime' => '13:00',
+        'date' => 'Monday',
+        'attended'  => 'Attended: 30/50'
     ],
     [
-        'name' => 'Course C',
+        'name' => 'Dancing',
         'id' => 3,
+        'desc' =>'Come dance with Klajdi!',
+        'startTime' => '16:00',
+        'endTime' => '17:00',
+        'date' => 'Monday',
+        'attended'  => 'Attended: 20/50'
+
     ],
 ];
 
 if ($courses !== null) {
     foreach ($courses as $course) {
-        echo '<a href="#" class="col-span-1 row-span-1 bg-orange-600 p-4 rounded-md hover:bg-orange-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider">' . $course['name'] . '</a>';
-    }
+        echo '<div>';
+            echo '<a href="#" class="course-button">';
+            echo '<span class="course-name">' . $course['name'] . '</span>';
+            echo $course['desc'] . '<br>';
+            echo '<span class="course-details">' . $course['date'] . '</span>';
+            echo $course['startTime'] . '-' . $course['endTime'] . '<br>';
+            echo $course['attended'];
+
+            echo '<span class="delete-course" onclick="deleteCourse(' . $course['id'] . ')">-</span>';
+            echo '</a>';
+            echo '</div>';
+            }
 } else {
     echo '<a href="/create/course.php" class="col-span-2 row-span-2 bg-red-600 p-4 rounded-full hover:bg-red-400 text-slate-100 hover:text-slate-800 transition-colors duration-300 text-lg tracking-wider text-center">Create New Course</a>
 ';
@@ -122,8 +194,8 @@ if ($courses !== null) {
 </div>
 <br> 
 
-<div class="mt-4 text-center w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
-  <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
+<!-- <div class="mt-4 text-center w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
+   <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
   <form id="timetableForm">
     <div>
       <label for="meetingName" class="text-gray-800">Meeting Name:</label>
@@ -142,8 +214,8 @@ if ($courses !== null) {
     </button>
   </form>
   <div id="timetable" class="flex flex-wrap justify-center mt-2">
-  </div>
-</div>
+
+</div> -->
 
 
 
@@ -167,7 +239,7 @@ if ($courses !== null) {
             </div>
             <textarea id="reviewTextarea" class="w-full px-4 py-2 bg-gray-100 rounded-lg" placeholder="Write your review"></textarea>
 
-            <!--Cuna ktu do beni lidhjen me menaxherin qe ti shkoj kjo review-->
+            <!-- Cuna ktu do beni lidhjen me menaxherin qe ti shkoj kjo review -->
             <button type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4">
               Send
             </button>
@@ -185,6 +257,22 @@ if ($courses !== null) {
 
 
   <script>
+  <!-- Beni pak delete te course me databaze -->
+
+        function deleteCourse(courseId) {
+            var confirmed = confirm("Are you sure you want to delete this course?");
+
+            if (confirmed) {
+                var courseElement = document.getElementById(`course-${courseId}`);
+
+                if (courseElement) {
+                    courseElement.remove();
+                }
+            }
+        }
+
+<!-- Beni latest review me backend -->
+  
     reviewForm.addEventListener("submit", function(event) {
       event.preventDefault();
 
@@ -235,30 +323,6 @@ if ($courses !== null) {
       }
 
       isDropdownOpen = !isDropdownOpen;
-    });
-
-    const timetableForm = document.getElementById("timetableForm");
-    const timetable = document.getElementById("timetable");
-
-    timetableForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const meetingName = document.getElementById("meetingName").value;
-      const startTime = document.getElementById("startTime").value;
-      const endTime = document.getElementById("endTime").value;
-
-      const slotElement = document.createElement("div");
-      slotElement.classList.add("timetable-slot");
-      slotElement.innerHTML = `
-        <div class="event">
-          <div class="event-name">${meetingName}</div>
-          <div class="event-time">${startTime} - ${endTime}</div>
-        </div>
-      `;
-
-      timetable.appendChild(slotElement);
-
-      timetableForm.reset();
     });
 
 
