@@ -1,12 +1,13 @@
 <?php
 
-abstract class User{
-    private $id;
-    private $password;
-    private $first_name;
-    private $last_name;
-    private $email;
-    private $phone_number;
+class User{
+    public $id;
+    public $password;
+    public $first_name;
+    public $last_name;
+    public $email;
+    public $phone_number;
+
 
     public function __construct($id, $password, $first_name, $last_name, $email, $phone_number){
     $this->id = $id;

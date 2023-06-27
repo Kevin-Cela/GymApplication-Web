@@ -226,6 +226,59 @@ ALTER TABLE `members`
   ADD CONSTRAINT `members_ibfk_1` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
+-- Table structure for table `reviews`
+--
+
+CREATE TABLE `reviews` (
+  `id` int(15) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `surname` varchar(50) NOT NULL,
+  `content` text NOT NULL,
+  `coach_id` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reviews`
+--
+
+INSERT INTO `reviews` (`id`, `name`, `surname`, `content`, `coach_id`) VALUES
+(1, 'Henri', 'Hatija', 'Good', 1),
+(2, 'Henri', 'Hatija', 'Nice', 1),
+(3, 'Henri', 'Hatija', 'Great', 1),
+(4, 'Henri', 'Hatija', '  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, expedita perspiciatis. Odit esse sunt labore ratione, sapiente omnis, facilis facere iusto officia tenetur sit inventore explicabo mollitia deserunt aperiam alias! Consectetur veritatis fugiat iusto ut aliquam sit neque ipsa provident, error pariatur, suscipit exercitationem fuga atque. Quae temporibus esse libero?\r\n', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reviews_ibfk_1` (`coach_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`coach_id`) REFERENCES `coaches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
