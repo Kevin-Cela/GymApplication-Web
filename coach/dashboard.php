@@ -93,6 +93,51 @@ else{
   .timetable-slot .event-time {
     color: #666;
   }
+   .course-button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 16px;
+        border-radius: 8px;
+        background-color: #F97316;
+        color: #F8F8F8;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .course-button:hover {
+        background-color: #FB923C;
+    }
+
+    .course-name {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .course-details {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .delete-course {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        color: #F97316;
+        font-size: 18px;
+        cursor: pointer;
+    }
 </style>
 
 <body class="bg-white">
@@ -124,6 +169,7 @@ else{
 <div class="grid grid-cols-2 grid-rows-2 gap-4 w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
 
  <?php
+
   global $database;
    $sql = "SELECT * FROM courses WHERE coach_id = {$coach->id}";
  $courses = array();
@@ -171,8 +217,9 @@ if ($courses !== null) {
 -->
 </div>
 <br> 
+
 <div class="mt-4 text-center w-9/12 md:w-2/2 lg:w-2/3 mx-auto">
-  <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
+   <h2 class="text-xl font-bold text-gray-800">Timetable</h2>
   <form id="timetableForm">
     <div>
       <label for="meetingName" class="text-gray-800">Meeting Name:</label>
@@ -191,8 +238,7 @@ if ($courses !== null) {
     </button>
   </form>
   <div id="timetable" class="flex flex-wrap justify-center mt-2">
-    <!-- Timetable slots go here -->
-  </div>
+</div>
 </div>
 
 
@@ -217,10 +263,12 @@ if ($courses !== null) {
             </div>
             <textarea name="content" id="reviewTextarea" class="w-full px-4 py-2 bg-gray-100 rounded-lg" placeholder="Write your review"></textarea>
 
+
             <!--Cuna ktu do beni lidhjen me menaxherin qe ti shkoj kjo review-->
             <input name="submit" type="submit" class="bg-orange-600 hover:bg-orange-400 hover:text-slate-800 transition-colors duration-300 text-white rounded-full py-2 px-4" value="Send">
               <!-- Send
             </button> -->
+
           </div>
         </form>
       </div>
@@ -253,7 +301,6 @@ if ($courses !== null) {
       </div>
     </div>
   </div>
-
 
 
   <script>
@@ -309,30 +356,6 @@ if ($courses !== null) {
       isDropdownOpen = !isDropdownOpen;
     });
 
-    const timetableForm = document.getElementById("timetableForm");
-    const timetable = document.getElementById("timetable");
-
-    timetableForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const meetingName = document.getElementById("meetingName").value;
-      const startTime = document.getElementById("startTime").value;
-      const endTime = document.getElementById("endTime").value;
-
-      const slotElement = document.createElement("div");
-      slotElement.classList.add("timetable-slot");
-      slotElement.innerHTML = `
-        <div class="event">
-          <div class="event-name">${meetingName}</div>
-          <div class="event-time">${startTime} - ${endTime}</div>
-        </div>
-      `;
-
-      timetable.appendChild(slotElement);
-
-      timetableForm.reset();
-    });
-
 
 
 
@@ -341,6 +364,8 @@ if ($courses !== null) {
         profileDropdown.classList.remove("fade-in");
         profileDropdown.classList.add("hidden");
         isDropdownOpen = false;
+
+        
       }
     });
 
@@ -365,6 +390,8 @@ if ($courses !== null) {
         });
       }
     });
+
+    
   </script>
 </body>
 

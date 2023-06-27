@@ -8,6 +8,7 @@ class User{
     public $email;
     public $phone_number;
 
+
     public function __construct($id, $password, $first_name, $last_name, $email, $phone_number){
     $this->id = $id;
     $this->password = $password;
