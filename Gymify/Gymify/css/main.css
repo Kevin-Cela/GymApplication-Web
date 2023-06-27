@@ -1,0 +1,10 @@
+/** Custom font  */
+@font-face {
+  font-family: Inter;
+  src: '../assets/font/Inter/Inter-Regular.ttf';
+}
+
+/** Define css variables */
+:root {
+  --logo-orange: #EA3C12;
+}
