@@ -6,10 +6,14 @@
   <!-- Include Global files -->
   <?php require '../components/globals.php' ?>
   <?php require '../components/Review.php' ?>
+
+  <?php require '../backend/models/manager.php' ?>
+
 </head>
 
 <body class="bg-slate-300">
   <?php require '../components/Navigation/Navigation.php' ?>
+
   <main class="mx-auto container">
     <div class="relative bg-slate-200 container mx-auto">
       <div class="relative w-fit h-fit flex flex-row items-start content-center justify-between">
@@ -35,6 +39,7 @@
       for ($i = 0; $i < 5; $i++) {
         $review = new Review($_SESSION['role']);
         echo ($review->managerReview("Alvi", "Dervishaj", "This is a test review", "10/06/2023", $i == 2 ? "ACCEPTED" : "UNREVIEWED"));
+
       }
       ?>
     </div>

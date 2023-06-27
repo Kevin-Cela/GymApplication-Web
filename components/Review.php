@@ -1,6 +1,5 @@
 <?php
 
-
 class Review
 {
   private $_user_role;
@@ -91,3 +90,4 @@ class Review
       </div>';
   }
 }
+
