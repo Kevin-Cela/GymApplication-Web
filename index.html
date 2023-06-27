@@ -1,0 +1,225 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+
+<body class="bg-gray-400">
+    <nav class="bg-orange-600 p-5 md:flex md:items-center md:justify-between">
+        <div class="flex justify-between items-center">
+            <span class="text-2xl font-[Poppins] font-semibold">
+                <img class="w-24 h-24 h-10 inline " src="Logo_black_2.png" alt="">Gymify
+            </span>
+
+            <span class="text-3xl cursor-hidden md:hidden block">
+                <ion-icon name="menu-outline" onclick="Menu(this)"></ion-icon>
+            </span>
+        </div>
+
+        <ul class="md:flex md:items-center z-[-1] md:z-aut o md:static absolute bg-orange-600 w-full left-0 md:w-auto md:py-4 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top=[-400px] transition-all ease-in duration-500" >
+            <li class="mx-4 my-6 md: my-0">
+                <a href="home.html" class="text-xl hover:text-orange-800 duration-800">HOME</a>
+            </li>
+            <li class="mx-4 my-6 md: my-0">
+                <a href="#" class="text-xl hover:text-orange-800 duration-800">CHOOSE MEMBERSHIP</a>
+            </li>
+            <li class="mx-4 my-6 md: my-0">
+                <a href="#" class="text-xl hover:text-orange-800 duration-800">CHOOSE COURSE</a>
+            </li>
+            <li class="mx-4 my-6 md: my-0">
+                <a href="#" class="text-xl hover:text-orange-800 duration-800"> LOG OUT</a>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        function Menu(e){
+            let list = document.querySelector('ul');
+
+            e.name === 'menu' ? (e.name = "close", list.classList.add('top-[80px]') , list.classList.add('opacity-100')) : (e.name = "menu" , list.classList.remove('top-[80px]'), list.classList.remove('opacity-100')) 
+        }
+    </script>
+
+
+    <div class="relative">
+        <div class=" inset-0 h-52 text-white flex items-center justify-center  transition-all ease-in-out duration-1000 transform translate-x-0 slide">
+            <img src="download.jpeg" alt="">
+        </div>
+        <div class=" inset-0 h-52 text-white flex items-center justify-center  transition-all ease-in-out duration-1000 transform translate-x-full slide">
+            <img src="foto2.jpeg" alt="">
+        </div>
+    </div>
+
+    <script>
+        setTimeout(function(){
+    let activeSlide = document.querySelector('.slide.translate-x-0');
+    activeSlide.classList.remove('translate-x-0');
+    activeSlide.classList.add('-translate-x-full');
+    
+    let nextSlide = activeSlide.nextElementSibling;
+    nextSlide.classList.remove('translate-x-full');
+    nextSlide.classList.add('translate-x-0');
+    }, 3000);
+    </script>
+    
+    <div class="flex">
+        <div class="w-1/2 font-semibold h-screen border-r-4 border-gray-500 text-3xl text-center pt-12">
+            Schedule
+            <table class="border-separate border-spacing-16 border border-black text-3xl mx-auto">
+                <thead>
+                  <tr>
+                    <th class="border border-black ...">Meeting</th>
+                    <td class="border border-black ...">12:45</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="border border-black ...">Course Name</th>
+                    <td class="border border-black ...">Swimming</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Coach Name</th>
+                    <td class="border border-black ...">Geri Xhaho</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Gym</th>
+                    <td class="border border-black ...">Fresku</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br>
+              <br>
+
+              <table class="border-separate border-spacing-16 border border-black text-3xl mx-auto">
+                <thead>
+                  <tr>
+                    <th class="border border-black ...">Meeting</th>
+                    <td class="border border-black ...">12:45</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="border border-black ...">Course Name</th>
+                    <td class="border border-black ...">Swimming</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Coach Name</th>
+                    <td class="border border-black ...">Geri Xhaho</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Gym</th>
+                    <td class="border border-black ...">Fresku</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="w-1/2 font-semibold pl-4 text-3xl text-center pt-12">
+            Courses
+            <table class="border-separate border-spacing-16 border border-black text-3xl mx-auto">
+                <thead>
+                  <tr>
+                    <th class="border border-black ...">Meeting</th>
+                    <td class="border border-black ...">12:45</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="border border-black ...">Course Name</th>
+                    <td class="border border-black ...">Swimming</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Coach Name</th>
+                    <td class="border border-black ...">Geri Xhaho</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Gym</th>
+                    <td class="border border-black ...">Fresku</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <br>
+              <br>
+
+              <table class="border-separate border-spacing-16 border border-black text-3xl mx-auto">
+                <thead>
+                  <tr>
+                    <th class="border border-black ...">Meeting</th>
+                    <td class="border border-black ...">12:45</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="border border-black ...">Course Name</th>
+                    <td class="border border-black ...">Swimming</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Coach Name</th>
+                    <td class="border border-black ...">Geri Xhaho</td>
+                  </tr>
+                  <tr>
+                    <th class="border border-black ...">Gym</th>
+                    <td class="border border-black ...">Fresku</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="container mx-auto p-8">
+      <h1 class="text-2xl font-bold mb-4">Person's Schedule</h1>
+  
+      <div class="mb-8">
+        <h2 class="text-xl font-bold mb-2">Remaining Sessions</h2>
+        <div class="flex flex-wrap -mx-4">
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Remaining Session 1" class="w-full h-auto rounded shadow">
+          </div>
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Remaining Session 2" class="w-full h-auto rounded shadow">
+          </div>
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Remaining Session 3" class="w-full h-auto rounded shadow">
+          </div>
+        </div>
+      </div>
+  
+      <div class="mb-8">
+        <h2 class="text-xl font-bold mb-2">Upcoming Schedule</h2>
+        <div class="flex flex-wrap -mx-4">
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Upcoming Session 1" class="w-full h-auto rounded shadow">
+          </div>
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Upcoming Session 2" class="w-full h-auto rounded shadow">
+          </div>
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Upcoming Session 3" class="w-full h-auto rounded shadow">
+          </div>
+        </div>
+      </div>
+  
+      <div>
+        <h2 class="text-xl font-bold mb-2">Suggested Schedules</h2>
+        <div class="flex flex-wrap -mx-4">
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Suggested Schedule A" class="w-full h-auto rounded shadow">
+          </div>
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Suggested Schedule B" class="w-full h-auto rounded shadow">
+          </div>
+          <div class="card px-4 mb-4">
+            <img src="Logo_black_2.png" alt="Suggested Schedule C" class="w-full h-auto rounded shadow">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+</body>
+</html>
