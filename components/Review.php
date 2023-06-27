@@ -1,4 +1,5 @@
 <?php
+
 class Review
 {
   private $_user_role;

@@ -3,8 +3,11 @@
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
 <?php
+
+require($_SERVER['DOCUMENT_ROOT'] . '/backend/models/user.php');
 session_start();
 session_regenerate_id();
+
 ?>
 <script>
   // Customize colors
