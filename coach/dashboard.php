@@ -6,7 +6,7 @@ require_once("../backend/models/review.php");
 
 global $database;
 $coach = $_SESSION['user'];
-$coach_id = $_SESSION['user']->getID();
+$coach_id = $coach->getID();
 
 
 $reviews = array();
@@ -275,7 +275,7 @@ if ($courses !== null) {
       <div id="reviewList" class="mt-4">
         <div class="bg-white p-4 rounded-lg">
           <h1 class="text-xl font-bold text-gray-800">
-            <?php if (count($reviews) == 1){
+            <?php if (count($reviews) >= 1){
               if($latest_review->name == ""){
                 echo "";
               }
