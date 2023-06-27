@@ -37,8 +37,6 @@
       <?php
       # get * ALL * reviews from database
       for ($i = 0; $i < 5; $i++) {
-        $review = new Review($_SESSION['role']);
-        echo ($review->managerReview("Alvi", "Dervishaj", "This is a test review", "10/06/2023", $i == 2 ? "ACCEPTED" : "UNREVIEWED"));
 
       }
       ?>
