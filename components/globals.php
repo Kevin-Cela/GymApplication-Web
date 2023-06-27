@@ -2,8 +2,7 @@
 <link rel="icon" type="image/svg+xml" href="/assets/logo/svg/logo-color.svg">
 <!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com"></script>
-<?php 
-require ($_SERVER['DOCUMENT_ROOT'] .'/backend/models/user.php');
+<?php
 session_start();
 session_regenerate_id();
 ?>
@@ -104,7 +103,11 @@ session_regenerate_id();
 <link rel="stylesheet" href="/css/main.css" />
 <!-- Highlight the active path -->
 <script src="/utils/navigation.js" defer></script>
+<!-- All Buttons should have their event listener in the file below -->
 <script src="/utils/button.js" defer></script>
+<!-- Slideshow in main page -->
 <script src="/utils/slideshow.js" defer></script>
+<!-- Important Meta Tags -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta charset="UTF-8" />
+<?php require "middleware.php"; ?>
